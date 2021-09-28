@@ -4,14 +4,12 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 interface Props extends RouteComponentProps{};
 type ClockState ={
     time: Date,
-    timerId: any,
-    owntext: string | undefined | null
+    timerId: any
 }
 export class Statefull extends React.Component<Props, ClockState>{
     state: ClockState = {
         time: new Date(),
-        timerId: null,
-        owntext: null
+        timerId: null
     }
     componentWillMount(){
         console.log("componentWillMount");
@@ -21,7 +19,7 @@ export class Statefull extends React.Component<Props, ClockState>{
     }
     
     shouldComponentUpdate(nextProps: {}, nextState: ClockState, nextContext: {}){
-        return false;
+        return true;
     }
     
     componentWillUnmount(){
@@ -40,17 +38,13 @@ export class Statefull extends React.Component<Props, ClockState>{
         },1000);
         this.setState({timerId:timerId});
     }
-    change(){
-
-    } 
     render(){
         const {history} = this.props;
         return(
             <div>
                 <h1>This is Stateful component</h1>
-                <button type="button"  onClick={()=>{this.StartTime()}} name="Start">Start Clock</button>
+                <button type="button" onClick={()=>{this.StartTime()}} name="Start">Start Clock</button>
                 <div>{this.state.time?.toLocaleTimeString()}</div>
-                <div>{this.state.owntext}</div>
                 <a onClick={history.goBack} href="void:;">Previous Page</a>
                 <div>
                     <Link to="/">Home Page</Link>

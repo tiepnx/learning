@@ -9,6 +9,7 @@ interface ICounter{
 const Couter : React.FunctionComponent<Props> = ({history}: Props) =>{
     const [count, setCount] = React.useState<ICounter | null>(null);
     function tick(){
+        debugger;
         setCount((prev) => ({
             value: (!!prev ? prev!.value : 0) + (!!prev ? prev.increase : 1),
             increase: (!!prev ? prev?.increase : 1)
@@ -25,17 +26,17 @@ const Couter : React.FunctionComponent<Props> = ({history}: Props) =>{
             increase: (!!prev ? prev?.increase : 0) + 1
         }));
     }
-    React.useEffect(() => {
-        const timer = window.setInterval(() => {
-            setCount((prev) => ({
-                value: (!!prev ? prev?.value : 0) + (!!prev ? prev.increase : 1),
-                increase: (!!prev ? prev?.increase : 1)
-            }));
-        }, 1000);
-        return () => {
-          window.clearInterval(timer);
-        };
-      }, []);
+    // React.useEffect(() => {
+    //     const timer = window.setInterval(() => {
+    //         setCount((prev) => ({
+    //             value: (!!prev ? prev?.value : 0) + (!!prev ? prev.increase : 1),
+    //             increase: (!!prev ? prev?.increase : 1)
+    //         }));
+    //     }, 1000);
+    //     return () => {
+    //       window.clearInterval(timer);
+    //     };
+    //   }, []);
     return(
         <div>
             <h1>Learn using hook in React</h1>
