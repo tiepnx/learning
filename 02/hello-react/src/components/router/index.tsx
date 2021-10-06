@@ -4,11 +4,13 @@ import Home from '../../pages/home';
 import Stateless from '../../pages/stateless';
 import Statefull from '../../pages/stateful';
 import Couter from '../../pages/couter';
+import Login from '../../pages/login';
 const Router = () =>{
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home}/>              
+                <Route exact path="/" component={Home}/>
+                <Route path="/login" component={Login}/>
                 <Route path="/stateful" component={Statefull}/>
                 <Route path="/stateless" component={Stateless}/>
                 <Route path="/hooks" component={Couter}/>

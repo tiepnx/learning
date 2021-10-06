@@ -7,6 +7,9 @@ const Home = ({history}: Props) =>{
             <h1>This is homepage</h1>
             <a onClick={history.goBack}>Previous Page</a>
             <div>
+                <Link to="/login">login</Link>
+            </div>
+            <div>
                 <Link to="/">Home Page</Link>
             </div>
             <div>

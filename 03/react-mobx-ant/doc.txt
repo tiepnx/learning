@@ -1,0 +1,7 @@
+npm run eject
+https://www.signifyd.com/blog/customize-ant-design-with-react/
+https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-ms
+
+https://stackoverflow.com/questions/41221633/how-to-submit-form-component-in-modal-dialogue-using-antd-react-component-librar
+https://github.com/ant-design/ant-design/issues/26747
+https://annacoding.com/article/62fqzseKsAO9ON7dhTCnAC/Submit-Form-of-Ant-Design-V4-with-Submit-Button-out-of-Form-in-React-Hooks
