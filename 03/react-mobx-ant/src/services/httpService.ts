@@ -1,5 +1,4 @@
 import AppConsts from './../helpers/appconst';
-//import { L } from '../lib/abpUtility';
 //import { Modal } from 'antd';
 import axios from 'axios';
 
@@ -16,12 +15,6 @@ const http = axios.create({
 
 http.interceptors.request.use(
   function(config) {
-    // if (!!abp.auth.getToken()) {
-    //   config.headers.common['Authorization'] = 'Bearer ' + abp.auth.getToken();
-    // }
-
-    // config.headers.common['.AspNetCore.Culture'] = abp.utils.getCookieValue('Abp.Localization.CultureName');
-    // config.headers.common['Abp.TenantId'] = abp.multiTenancy.getTenantIdCookie();
     config.headers['Access-Control-Allow-Origin'] = '*';
     config.headers['Content-Type'] = 'application/json';
     return config;

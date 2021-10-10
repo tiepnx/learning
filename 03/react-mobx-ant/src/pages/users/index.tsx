@@ -64,10 +64,6 @@ class User extends React.Component<IUserProps, IUserState> {
     }
     this.setState({ userId: Number(entityDto.id) });
     this.Modal();
-
-    setTimeout(() => {
-      this.formRef.current?.setFieldsValue({ ...this.props.userStore.editUser });
-    }, 100);
   }
 
   delete(input: EntityDto) {
@@ -194,7 +190,8 @@ class User extends React.Component<IUserProps, IUserState> {
             });
             this.formRef.current?.resetFields();
           }}
-          modalType={this.state.userId === 0 ? 'edit' : 'create'}
+          data = {this.props.userStore.editUser}
+          modalType={this.state.userId === 0 ? 'create' : 'edit'}
           onCreate={this.handleCreate}
         />
       </Card>

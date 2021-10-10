@@ -7,6 +7,7 @@ import { FormInstance } from  'antd/lib/form';
 
 export interface ICreateOrUpdateUserProps {
   visible: boolean;
+  data: any;
   onCancel: () => void;
   modalType: string;
   onCreate: (values: any) => void;
@@ -49,9 +50,16 @@ const tailFormItemLayout = {
   },
 };
 const  CreateOrUpdateUser: React.FC<ICreateOrUpdateUserProps> = ({
-  modalType,
+  modalType, data,
   visible, onCancel, onCreate})=>{
   const [form] = Form.useForm();
+  React.useEffect(() => {
+    if(modalType === 'edit'){
+      form.setFieldsValue({ ...data});
+    }else{
+      form.resetFields();
+    }
+  });
   return (
     <Modal visible={visible} width={600} cancelText='Cancel' okText='OK' onCancel={onCancel}
     onOk={()=>{
@@ -68,7 +76,7 @@ const  CreateOrUpdateUser: React.FC<ICreateOrUpdateUserProps> = ({
         <Form.Item label='Email' {...formItemLayout} name={'emailAddress'} rules={rules.emailAddress as []}>
           <Input />
         </Form.Item>
-        {modalType === 'edit' ? (
+        {modalType === 'create' ? (
           <Form.Item
             label='Password'
             {...formItemLayout}
@@ -83,7 +91,7 @@ const  CreateOrUpdateUser: React.FC<ICreateOrUpdateUserProps> = ({
             <Input type="password" />
           </Form.Item>
         ) : null}
-        {modalType === 'edit' ? (
+        {modalType === 'create' ? (
           <Form.Item
             label='Confirm Password'
             dependencies={['password']}

@@ -1,5 +1,3 @@
-//import { L } from '../../lib/abpUtility';
-
 const rules = {
   userNameOrEmailAddress: [
     {

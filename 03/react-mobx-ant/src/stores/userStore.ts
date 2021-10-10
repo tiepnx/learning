@@ -35,7 +35,6 @@ class UserStore {
 
   @action
   async get(entityDto: EntityDto) {
-    debugger;
     let result = await userService.get(entityDto);
     this.editUser = result;
   }

@@ -3,7 +3,6 @@ import './index.less';
 import * as React from 'react';
 
 import { Avatar, Col, Layout, Menu } from 'antd';
-//import { L, isGranted } from '../../lib/abpUtility';
 
 import MindsetLogo from '../../images/mindset.png';
 import { appRouters } from '../router/router.config';
